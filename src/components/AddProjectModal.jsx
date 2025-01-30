@@ -22,6 +22,7 @@ export default function AddProjectModal({
     event.preventDefault();
 
     const newProject = {
+      id: "proj" + String(Date.now()),
       name: titleRef.current.value,
       description: descriptionRef.current.value,
       date: dateRef.current.value,

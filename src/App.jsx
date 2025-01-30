@@ -7,18 +7,24 @@ function App() {
   const [projects, setProjects] = useState([
     {
       id: "proj1",
-      name: "Aaltu Project",
+      name: "Project 1",
       description: "This is a project",
       date: "2021-09-01",
-      tasks: ["Task 1", "Task 2", "Task 3"],
+      tasks: [
+        { id: "task1", text: "Task one do this" },
+        { id: "task2", text: "Task two do that" },
+      ],
     },
     {
       id: "proj" + String(Date.now()),
 
-      name: "Faltu Project",
+      name: "Project 2",
       description: "This is another project",
       date: "2021-09-02",
-      tasks: ["Task 1", "Task 2", "Task 3"],
+      tasks: [
+        { id: "task1", text: "Yu du dis" },
+        { id: "task2", text: "Yu did dat" },
+      ],
     },
   ]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -52,6 +58,12 @@ export default App;
 // and when i hit save on the side of that shech, it adds that to the projects state variable ✅
 
 // when i click on a project on the sidebar, it pulls out the info and shech of that project on the main panel inside
-// the ProjectInfo component -> all I need to do is set the selectedProject to the one that I just clicked on
+// the ProjectInfo component -> all I need to do is set the selectedProject to the one that I just clicked on ✅
 
-// add a "task adder" inside the TaskView component
+// add a "task adder" inside the TaskView component ✅
+
+// add a "delete project" functionality
+
+// connect with localstorage
+
+// add the strikethrough functionality (add a clear button)

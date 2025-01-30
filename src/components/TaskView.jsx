@@ -1,22 +1,51 @@
-import { useState } from "react";
+import { useRef } from "react";
 
-const TaskView = () => {
-  const [newTask, setNewTask] = useState("");
-  const [tasks, setTasks] = useState([
-    { id: 1, text: "Create project wireframes" },
-    { id: 2, text: "Design database schema" },
-    { id: 3, text: "Implement user authentication" },
-  ]);
+const TaskView = ({ setProjects, selectedProject }) => {
+  const tasksInput = useRef();
+  //   const [tasks, setTasks] = useState([
+  //     { id: 1, text: "Create project wireframes" },
+  //     { id: 2, text: "Design database schema" },
+  //     { id: 3, text: "Implement user authentication" },
+  //   ]);
 
   const handleAddTask = () => {
+    const newTask = tasksInput.current.value;
     if (newTask.trim()) {
-      setTasks([...tasks, { id: Date.now(), text: newTask }]);
-      setNewTask("");
+      setProjects(function (prevProjects) {
+        const updatedTasks = [
+          ...selectedProject.tasks,
+          { text: tasksInput.current.value },
+        ];
+        tasksInput.current.value = "";
+        return prevProjects.map((project) => {
+          if (project.id === selectedProject.id) {
+            return {
+              ...project,
+              tasks: updatedTasks,
+            };
+          }
+          return project;
+        });
+      });
     }
   };
 
-  const handleDeleteTask = (taskId) => {
-    setTasks(tasks.filter((task) => task.id !== taskId));
+  const handleDeleteTask = (taskIndex) => {
+    setProjects((prevProjects) => {
+      const updatedTasks = selectedProject.tasks.filter(
+        (_, index) => index !== taskIndex
+      );
+
+      return prevProjects.map((project) => {
+        if (project.id === selectedProject.id) {
+          return {
+            ...project,
+            tasks: updatedTasks,
+          };
+        }
+        return project;
+      });
+    });
   };
 
   return (
@@ -24,8 +53,7 @@ const TaskView = () => {
       <div className="mb-8">
         <input
           type="text"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
+          ref={tasksInput}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               handleAddTask();
@@ -36,14 +64,14 @@ const TaskView = () => {
         />
       </div>
       <div className="space-y-2">
-        {tasks.map((task) => (
+        {selectedProject.tasks.map((task, taskIndex) => (
           <div
-            key={task.id}
+            key={taskIndex}
             className="flex justify-between items-center text-gray-300"
           >
             {task.text}
             <button
-              onClick={() => handleDeleteTask(task.id)}
+              onClick={() => handleDeleteTask(taskIndex)}
               className="ml-4 px-2 py-1 text-sm text-gray-400 hover:text-red-400 transition-colors"
             >
               Delete

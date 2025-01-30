@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import ProjectInfo from "./ProjectInfo";
 import TaskView from "./TaskView";
 import AddProjectModal from "./AddProjectModal";
@@ -11,6 +11,14 @@ export default function MainPanel({
   setSelectedProject,
   projects,
 }) {
+  // Update selectedProject when projects change
+  useEffect(() => {
+    if (selectedProject) {
+      const updatedProject = projects.find((p) => p.id === selectedProject.id);
+      setSelectedProject(updatedProject);
+    }
+  }, [projects, selectedProject]);
+
   return (
     <div className="p-8 ml-64 bg-gray-900 font-mono w-[calc(100vw-16rem)] h-screen">
       <div className="w-full h-full flex flex-col gap-8">
@@ -23,8 +31,15 @@ export default function MainPanel({
           />
         ) : selectedProject ? (
           <>
-            <ProjectInfo selectedProject={selectedProject} />
-            <TaskView tasks={selectedProject.tasks} />
+            <ProjectInfo
+              setSelectedProject={setSelectedProject}
+              selectedProject={selectedProject}
+              setProjects={setProjects}
+            />
+            <TaskView
+              setProjects={setProjects}
+              selectedProject={selectedProject}
+            />
           </>
         ) : (
           <div className="flex items-center justify-center h-full">
