@@ -1,34 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "./components/Sidebar";
 import MainPanel from "./components/MainPanel";
 
-function App() {
-  // assinging a project based on the following id: proj + the number obtained from Date.now()
-  const [projects, setProjects] = useState([
-    {
-      id: "proj1",
-      name: "Project 1",
-      description: "This is a project",
-      date: "2021-09-01",
-      tasks: [
-        { id: "task1", text: "Task one do this" },
-        { id: "task2", text: "Task two do that" },
-      ],
-    },
-    {
-      id: "proj" + String(Date.now()),
+const localProjects = JSON.parse(localStorage.getItem("savedProjects"));
 
-      name: "Project 2",
-      description: "This is another project",
-      date: "2021-09-02",
-      tasks: [
-        { id: "task1", text: "Yu du dis" },
-        { id: "task2", text: "Yu did dat" },
-      ],
-    },
-  ]);
+function App() {
+  // retrieving project information from localstorage:
+
+  const [projects, setProjects] = useState(localProjects || []);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(projects[0]);
+
+  useEffect(
+    function () {
+      localStorage.setItem("savedProjects", JSON.stringify(projects));
+    },
+    [projects]
+  );
 
   return (
     <main className="h-screen w-full flex">
@@ -62,7 +50,7 @@ export default App;
 
 // add a "task adder" inside the TaskView component ✅
 
-// add a "delete project" functionality
+// add a "delete project" functionality ✅
 
 // connect with localstorage
 
