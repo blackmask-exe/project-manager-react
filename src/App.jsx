@@ -52,6 +52,6 @@ export default App;
 
 // add a "delete project" functionality ✅
 
-// connect with localstorage
+// connect with localstorage ✅
 
 // add the strikethrough functionality (add a clear button)
