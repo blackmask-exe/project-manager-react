@@ -44,7 +44,7 @@ export default function AddProjectModal({
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black/30">
+    <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black/30 z-999999">
       {" "}
       <form
         onSubmit={handleSubmit}

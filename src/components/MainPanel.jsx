@@ -11,16 +11,18 @@ export default function MainPanel({
   setSelectedProject,
   projects,
 }) {
-  // Update selectedProject when projects change
   useEffect(() => {
     if (selectedProject) {
       const updatedProject = projects.find((p) => p.id === selectedProject.id);
       setSelectedProject(updatedProject);
     }
-  }, [projects, selectedProject]);
+  }, [projects]);
 
   return (
-    <div className="p-8 ml-64 bg-gray-900 font-mono w-[calc(100vw-16rem)] h-screen">
+    <div
+      className="p-8 bg-gray-900 font-mono w-full transition-all duration-300
+    sm:pl-72 sm:pr-8"
+    >
       <div className="w-full h-full flex flex-col gap-8">
         {isDialogOpen ? (
           <AddProjectModal

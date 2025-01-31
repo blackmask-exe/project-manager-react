@@ -14,10 +14,10 @@ const TaskView = ({ setProjects, selectedProject }) => {
       setProjects(function (prevProjects) {
         const updatedTasks = [
           ...selectedProject.tasks,
-          { text: tasksInput.current.value },
+          { text: newTask }, // Use newTask instead of tasksInput.current.value
         ];
-        tasksInput.current.value = "";
-        return prevProjects.map((project) => {
+
+        const updatedProjects = prevProjects.map((project) => {
           if (project.id === selectedProject.id) {
             return {
               ...project,
@@ -26,6 +26,9 @@ const TaskView = ({ setProjects, selectedProject }) => {
           }
           return project;
         });
+
+        tasksInput.current.value = ""; // Move clearing here, after task creation
+        return updatedProjects;
       });
     }
   };
