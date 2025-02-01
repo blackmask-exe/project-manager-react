@@ -31,18 +31,14 @@ const Sidebar = ({ projects, setIsDialogOpen, setSelectedProject }) => {
         } h-screen bg-gray-900 fixed left-0 top-0 font-mono flex flex-col transition-all duration-300 z-50`}
       >
         <div
-          className={`p-6 ${isCollapsed ? "items-center" : ""} flex flex-col`}
+          className={`p-6 ${
+            isCollapsed ? "items-center" : ""
+          } flex flex-col sm:mt-0 mt-15`}
         >
           <div className="flex items-center justify-between w-full mb-6">
             {!isCollapsed && (
               <h1 className="text-2xl font-bold text-white">Project Manager</h1>
             )}
-            {/* <button
-              onClick={() => setIsCollapsed(!isCollapsed)}
-              className="text-gray-400 hover:text-gray-200 transition-colors block"
-            >
-              {isCollapsed ? "→" : "←"}
-            </button> */}
           </div>
           {!isCollapsed && (
             <button
