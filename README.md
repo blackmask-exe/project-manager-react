@@ -1,18 +1,16 @@
 # Project Manager React
 
-Welcome to the repository for a Project Manager application built with React. This application helps users manage projects, tasks, and team members.
+Welcome to the repository for a Project Manager application built with React. This application helps users manage projects and tasks.
 
 ## Overview
 
-This project is a web-based project management tool designed to streamline project workflows, enhance team collaboration, and improve overall project visibility. It provides a user-friendly interface for creating, organizing, and tracking projects, tasks, and team assignments.
+This project is a web-based project management tool designed to streamline project workflows, enhance team collaboration, and improve overall project visibility. It provides a minimalistic user-friendly interface for creating, organizing, and tracking projects, tasks, and team assignments.
 
 ## Features
 
 - **Project Creation and Management**: Create new projects, define project details (e.g., name, description, due date), and manage existing projects.
 - **Task Management**: Add tasks to projects, assign tasks to team members, set priorities, and track task progress.
 - **Team Collaboration**: Manage team members, assign roles, and facilitate communication within projects.
-- **Progress Tracking**: Visualize project progress with charts and graphs, monitor task completion rates, and identify potential bottlenecks.
-- **User Authentication (Potentially)**: Secure user accounts with login/registration functionality (depending on implementation).
 - **Responsive Design**: Adapts to different screen sizes for optimal viewing on various devices.
 
 ## Technologies Used
@@ -23,9 +21,6 @@ This project utilizes the following technologies:
 - **HTML**: Structuring the content of the website.
 - **CSS**: Styling the website to ensure a visually appealing design.
 - **JavaScript**: Adding interactivity and dynamic functionality.
-- **Backend Technology (If applicable)**: Node.js, Express, or other backend frameworks/databases if the project includes server-side logic and data persistence. Specify the technologies used here.
-- **State Management (If applicable)**: Redux, Context API, or other state management solutions. Specify which one is used.
-- **Other Libraries/Frameworks**: List any other relevant libraries or frameworks used (e.g., UI component libraries, charting libraries).
 
 ## Getting Started
 
@@ -53,7 +48,7 @@ To set up and run the Password Manager locally, follow these steps:
    npm start
    ```
 
-5. **Open https://localhost:<port based on prompt when starting development server> on your preferred**
+5. **Open https://localhost:(port)**
 
 ## Contributing:
 
