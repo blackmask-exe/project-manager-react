@@ -29,7 +29,7 @@ To set up and run the Password Manager locally, follow these steps:
 1. **Clone the Repository:**:
 
    ```bash
-   git clone [https://github.com/blackmask-exe/project-manager-react.git](https://github.com/blackmask-exe/project-manager-react.git)
+   git clone https://github.com/blackmask-exe/project-manager-react.git
    ```
 
 2. **Navigate to the Project folder:**:
